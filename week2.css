@@ -1,0 +1,281 @@
+/* FLEX DIGUNAKAN UNTUK SATU DIMENSI, DEFAULTNYA ADALAH KE KANAN. JIKA CONTAINER SUDAH TIDAK MUAT, MAKA CONTENT AKAN DIBPINDAHKAN KE BAWAH (tetap berurut ke kanan) */
+
+/* order */
+/* order = harus semua diorder untuk mendapatkan hasil yang berurut,
+misal ada 4 content:
+jika semua content belum diurutkan dari 1-4, maka order yang ke 2 akan tetap menjadi ke 4 */
+
+h3 {
+  font-size: 50px;
+}
+
+.container {
+  /* background-color: purple; */
+  width: 600px;
+  border: 5px solid pink;
+  margin: 30px auto; /* y , x */
+  box-sizing: border-box;
+  display: flex;
+}
+
+.container div {
+  /*buat kasih style div di dalam container, bentuknya jadi .container div {} */
+  width: 120px;
+  height: 130px;
+  background-color: lightblue;
+  margin: 2px;
+}
+
+.container div.satu {
+  order: 1;
+  background-color: red;
+}
+.container div.dua {
+  order: 0;
+}
+.container div.tiga {
+  order: 3;
+}
+.container div.empat {
+  order: 2;
+}
+
+/* flex-grow : untuk ngatur ukuran content dalam sendiri aja */
+/* align-self : untuk memposisikan content itu sendiri saja (posisinys diatur menyesuaikan direction)*/
+
+.containergrow {
+  width: 600px;
+  height: 400px;
+  border: 5px solid gray;
+  margin: 30px auto;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.containergrow div {
+  height: 100px;
+  background-color: lightblue;
+  margin: 2px;
+  flex: 1;
+}
+
+.containergrow div.dua {
+  flex: 2;
+}
+
+.containergrow div.tiga {
+  align-self: self-end;
+}
+/* vertikal */
+
+/* FLEX-DIRECTION : */
+
+.container1 {
+  width: 600px;
+  border: 5px solid grey;
+  margin: 30px auto;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.container1 div {
+  width: 120px;
+  height: 120px;
+  background-color: lightblue;
+  margin: 2px;
+}
+
+.container2 {
+  width: 600px;
+  border: 5px solid grey;
+  margin: 30px auto; /*auto untuk responsive web nya, tetap 30px walau digeser" */
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.container2 div {
+  /*buat kasih style div di dalam container, bentuknya jadi .container div {} */
+  width: 120px;
+  height: 120px;
+  background-color: rgb(0, 153, 255);
+  margin: 2px;
+}
+
+/* FLEX-WRAP */
+
+/* wrap  */
+.container3 {
+  width: 600px;
+  border: 5px solid grey;
+  margin: 30px auto; /*auto untuk responsive web nya, tetap 30px walau digeser" */
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+
+.container3 div {
+  /*buat kasih style div di dalam container, bentuknya jadi .container div {} */
+  width: 120px;
+  height: 120px;
+  background-color: rgb(0, 153, 255);
+  margin: 2px;
+}
+
+/* JUSTIFY-CONTENT = horizontal */
+
+/* flex-start */
+.container4 {
+  width: 600px;
+  border: 5px solid grey;
+  margin: 30px auto; /*auto untuk responsive web nya, tetap 30px walau digeser" */
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-evenly;
+  /*
+    flext-start
+    flext-end
+    center
+    space-between
+    space-around
+    space-evenly
+    */
+}
+
+.container4 div {
+  /*buat kasih style div di dalam container, bentuknya jadi .container div {} */
+  width: 120px;
+  height: 120px;
+  margin: 2px;
+  background-color: rgb(0, 153, 255);
+}
+
+/* ALIGN-ITEMS : mengatur penjajar content(= content yang ada di dalam box) terhadap cross axis ( vertikal) */
+
+.containeralign1 {
+  width: 600px;
+  height: 400px;
+  border: 5px solid grey;
+  margin: 30px auto; /*auto untuk responsive web nya, tetap 30px walau digeser" */
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  /*
+    flext-start
+    flext-end
+    center
+    stretch
+    baseline
+    */
+}
+
+.containeralign1 div {
+  /*buat kasih style div di dalam container, bentuknya jadi .container div {} */
+  width: 100px;
+  background-color: rgb(0, 153, 255);
+  margin: 2px;
+}
+
+/* baseline mensejajarkan content sesuai angka(=angka di dalam content kotak biru)*/
+.containeralign5 {
+  width: 600px;
+  height: 400px;
+  border: 5px solid grey;
+  margin: 30px auto; /*auto untuk responsive web nya, tetap 30px walau digeser" */
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: baseline;
+}
+
+.containeralign5 div {
+  /*buat kasih style div di dalam container, bentuknya jadi .container div {} */
+  width: 100px;
+  height: 100px;
+  background-color: rgb(0, 153, 255);
+  margin: 2px;
+}
+
+.containeralign5 div.empat {
+  font-size: 50px;
+}
+.containeralign5 div.tiga {
+  font-size: 70px;
+}
+.containeralign5 div.dua {
+  font-size: 100px;
+}
+
+/* ALIGN-CONTENT : sama seperti align-item, hanya berlaku untuk content yang lebih dari satu baris ( corss axis only ) */
+.containeraligncontent {
+  width: 600px;
+  height: 700px;
+  border: 5px solid grey;
+  margin: 30px auto; /*auto untuk responsive web nya, tetap 30px walau digeser" */
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.containeraligncontent div {
+  /*buat kasih style div di dalam container, bentuknya jadi .container div {} */
+  width: 120px;
+  height: 120px;
+  background-color: rgb(0, 153, 255);
+  margin: 2px;
+}
+
+/*
+3 jenis JUSTIFY dan ALIGN :
+a. items : ???
+b. content : ???
+c. self : ???
+
+justify-self
+justify-content
+justify-self
+*/
+
+.container-card {
+  max-width: 800px;
+  margin: 50px auto;
+  display: flex;
+  /* background-color: aquamarine; */
+}
+
+.card {
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: wheat;
+  overflow: hidden;
+  margin: 10px;
+  flex: 1;
+}
+
+.header {
+  height: 150px;
+  background-color: brown;
+}
+
+.content {
+  text-align: center;
+  padding-bottom: 20px;
+  /* background-color: red; */
+}
+
+.besar {
+  transform: scale(1.12);
+}
+
+/* :hover .tombol{
+    transform: scale(1.13);
+} */
