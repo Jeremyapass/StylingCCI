@@ -1,0 +1,297 @@
+.container{
+    width: 600px;
+    margin: 50px auto;
+    border: 5px black solid;
+    box-sizing: border-box;
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+     /*untuk mengatur row nya (FR = fraction [satuan ukuran khusus di grid]*/
+
+     /* Grit-Auto-Columns/Row = untuk mengatur grid yang implicit */
+    /* grid-auto-columns: 20px; */
+    grid-template-rows: 1fr 1fr 1.3fr 1fr;
+    grid-template-areas: "ok ok" /*untuk memberi nama area yang ingin kita style */
+                        "aside main"
+                        "nav main"
+                        "footer footer";
+    gap: 2px;
+}
+
+header{
+    grid-area: ok; /*untuk penamaan daerah*/
+    padding: 40px ;
+    background-color: rgb(176, 123, 226);
+}
+
+aside{
+    grid-area: aside;
+    background-color: rgb(78, 236, 236);
+    padding: 60px;
+}
+
+nav{
+    grid-area: nav;
+    background-color: rgb(219, 91, 91);
+    padding: 100px;
+}
+
+main{
+    grid-area: main;
+    background-color: rgb(224, 147, 45);
+    box-sizing: border-box;
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    grid-area: footer;
+    background-color: grey;
+    padding: 20px;
+}
+
+
+
+/* 2 */
+
+/* Columns/kolom = satuan menurun (vertikal)
+Gride m-template-columns = menentukan ukuran kolom, ukurannya bertamnbah menyamping.
+
+Row/baris = satuan kenyamping (horizontal)
+Grid-template-rows = menentukan ukuran baris, ukurannya bertamnbah menurun. */
+
+
+.container1{
+    width: 60%;
+    margin: 50px;
+    display: grid;
+    background-color: green;
+
+
+/* EXPLICIT & IMPLICIT GRID 
+
+-EXPLICIT = secara jelas kita menuliskan ukuran dari gridnya, kolom dan barisnya
+-IMPLICIT = gridnya menentukan secara otomatis dari yang tidak kita tentukan secara explicit (bisa sisa dari explicit).
+
+Explicit : 
+- Garis solid menentukan explicit grid (untuk menentukan awal dan akhir explicit gridnya)
+Implicit : 
+- Garis putus" menentukan implicit grid*/
+    grid-template-columns: 100px 50px 60px ;
+    grid-template-rows: 100px 100px ;
+   
+   
+
+    
+/* AUTO FLOW = mengatur penempatan content pada grid track, termasuk implicit
+
+penempatannya : urutan dari grid tersebut akan menyesuaikan flownya*/
+    grid-auto-flow: column;
+    /* grid-auto-flow: row; */
+    gap: 3px;
+}
+.container2{
+    width: 60%;
+    margin: 50px;
+    display: grid;
+    grid-template-columns: [awal]1fr [kolom2] 2fr 3fr;
+    gap: 3px;
+}
+  
+
+.item{
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item:nth-child(even){
+    background-color:red
+}
+
+/* 3 */
+h2{
+    text-align: center;
+    margin: 0%;
+}
+
+.container3{
+    width: 60%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    /* grid-template-rows: repeat(5, 3fr) repeat(1,2fr); */
+}  
+
+/* MIN/MAX-CONTENT */
+
+/* MIN-CONTENT = akan memisahkan katanya satu persatu, dan memposisikannya
+secara vertikal
+
+MAX-CONTENT = akan memperpanjang ukuran grid sesuai content. */
+
+.container4{
+    width: 60%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+}  
+
+
+/* AUTO-FILL/FIT = menentkan jumalh item utk berada pda grid track*/
+
+/* ATUTO-FIT = implicitnya akan berhenti sesuai grid yang ada walaupun masi ada ruang kosong di containernya
+
+AUTO-FILL = implicitnya akan melacak ruang kosong yang ada untuk bisa ditempatkan oleh grid.
+memberi tahu developer agar bisa muat berapa grid lagi dalam conetainer tsb. */
+
+.container5{
+    width: 60%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(AUTO-FILL,100px); 
+    border: 5px orange solid;
+}  
+
+.container6{
+    width: 60%;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: 1fr minmax(100px, 200px) 1fr;
+    /* MINIMUM untuk seluruhh ukuran layar adalah 200px, MAXIMUM untuk seluruh ukuran layar adalah 300px */
+}
+
+/* CONTOH PENERAPAN (GALLERY PHOTO) */
+
+img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery{
+    width: 80%;
+    margin: 20px auto; 
+    /* margin auto supaya di tengah */
+    border:  10px solid white;
+    list-style: none;
+    box-shadow: 2px 2px 2px black;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+    /* grid-template-rows: repeat(3,1fr); */
+    /* grid-auto-flow: column; */
+    border:  5px red solid;
+}
+
+
+/* 4 */
+
+*{
+    padding:0;
+    margin: 0;
+    text-align: center;
+}
+
+.i1, .i4, .i7{
+    width: 130px;
+}
+.i2, .i5, .i8{
+    width: 80px;
+}
+.i3, .i6, .i9{
+    width: 170px;
+}
+
+/* ALIGN.JUSTIFY-ITEMS = PLACE-ITEMS */
+/* PLACE-ITEMS adalah gabungan ALIGN-ITEMS dan JUSTIFY-ITEMS secara berurut dari kiri ke kanan  */
+
+.container7{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 130px 130px 130px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    /* justify-items: start; */
+    /* justify-items: end; */
+    /* justify-items: center; */
+    /* justify-items:stretch; */
+
+    /* align-items:start ; */
+    /* align-items: end; */
+    /* align-items: center; */
+
+    place-items:center;
+    /* ALIGN-ITEMS , JUSTIFY-ITEMS */
+    margin-bottom: 5rem;
+}
+
+.items{
+    height: 100px;
+    border: 3px solid black;
+    background-color: lightblue;
+}
+
+
+
+
+/* ALIGN.JUSTIFY-CONTENT = PLACE-CONTENT */
+/* PLACE-CONTENT adalah gabungan ALIGN-CONTENT dan JUSTIFY-CONTENT secara berurut dari kiri ke kanan */
+
+/* CATATAN = Dapat digunakan ketika ukuran total grid lebih kecil dari ukuran containernya,
+biasanya ketika grid itemsnya menggunakan ukuran yang fix! */
+.container8 {
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 120px 180px 120px;
+    grid-template-rows: 80px 80px;
+    gap: 3px;
+    row-gap: 12px;
+    
+
+    /* align-content: start; */
+    /* align-content: end; */
+    /* align-content: center; */
+    /* align-content: stretch; */
+    /* align-content: space-around; */
+    /* align-content: space-between; */
+    /* align-content: space-evenly; */
+
+
+    /* justify-content: start; */
+    /* justify-content: end; */
+    /* justify-content: center; */
+    /* justify-content: stretch; */
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    /* justify-content: space-evenly; */
+
+
+    /* place-content: start; */
+    /* place-content: end; */
+    /* place-content: center; */
+    /* place-content: stretch; */
+    /* place-content: space-around; */
+    /* place-content: space-between; */
+    /* place-content: space-evenly; */
+
+    place-content: end space-around;
+    /* align , justify */
+
+}
+
+.items2{
+    width: 100px;
+    height: 50px;
+    border: 3px solid blackback;
+    background-color: lightblue
+}
+ .ii3, .ii6, .ii9{
+    justify-self: end;
+}
+
