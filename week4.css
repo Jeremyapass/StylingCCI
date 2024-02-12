@@ -1,0 +1,47 @@
+@font-face {
+    font-family: meira;
+    src: url(Meira\ Demo.ttf);
+  }
+
+.container {
+  background-color: indigo;
+  color: white;
+  padding: 10px;
+  margin: auto;
+}
+
+h2 {
+  font-style: bold;
+  font-size: 2.25rem;
+  font-family: meira;
+}
+
+div{
+    margin-top: -30px;
+}
+
+a{
+    color: white;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+}
+
+blockquote{
+    font-style: italic;
+}
+
+.paragraf2{
+    color: antiquewhite;
+}
+
+@media (max-width : 600px) {
+    .container{
+        background-color: blue;
+        overflow: scroll;
+        height: 500px;
+    }
+}
+
+
+
